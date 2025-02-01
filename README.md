@@ -17,14 +17,14 @@ npm install puppeteer
 (Additional dependencies like MySQL and Nodemailer are commented out in the script but can be included if needed.)
 Usage
 Modify the script:
-Replace helpme21b019@gmail.com with your email.
-Replace dummypassword with your Gmail password (not recommended; consider using environment variables for security).
+Replace with your email.
+Replace with your Gmail password (not recommended; consider using environment variables for security).
 Modify recipient email (input.agP), subject (subjectbox), and message body (Message Body).
 Run the script:
 sh
 Copy
 Edit
-node sss.js
+node gmail_automation.js
 The script will launch a Chrome browser, log in to Gmail, compose an email, and send it.
 Features
 Launches a non-headless Chrome browser to visually track automation.
