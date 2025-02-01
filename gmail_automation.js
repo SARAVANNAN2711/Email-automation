@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 //const mysql = require('mysql2/promise');
 //const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -43,7 +44,7 @@ function sleep(ms) {
 
     // Take a screenshot
     await page.screenshot({ path: 'screenshot.png', fullPage: true });
-    await page.type('#identifierId', 'helpme21b019@gmail.com');
+    await page.type('#identifierId', process.env.mail_id);
     await page.waitForSelector('#identifierNext', { visible: true, timeout: 30000 });
     const loginLink = await page.$('#identifierNext');
     await loginLink.evaluate(link => link.click());
@@ -51,7 +52,7 @@ function sleep(ms) {
     await sleep(3000);
     await page.screenshot({ path: 'screenshot2.png', fullPage: true });
     await page.waitForSelector('[type="password"]', { visible: true, timeout: 30000 });
-    await page.type('[type="password"]', 'dummypassword');
+    await page.type('[type="password"]', process.env.mail_password);
     await sleep(3000);
 
     //    await page.waitForSelector('button:has-text("Next") ', { visible: true, timeout: 30000 });
